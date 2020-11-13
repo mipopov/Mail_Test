@@ -10,6 +10,8 @@ target 'MailWeather' do
 	pod 'RxCocoa', '~> 5.1.1'
 	pod 'RxDataSources', '~> 4.0.1'
 	pod 'SnapKit', '~> 5.0.1'
+	pod 'RxKingfisher', '~>1.0.0'
+	pod 'RxGesture','~> 3.0.1'
 
   # Pods for MailWeather
 
