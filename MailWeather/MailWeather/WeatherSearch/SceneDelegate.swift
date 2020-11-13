@@ -22,7 +22,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         firstVC.searchVM = WeatherSearchViewModel(router: router)
 
         let navigationVC = UINavigationController(rootViewController: firstVC)
-        navigationVC.navigationBar.isHidden = true
         window?.rootViewController = navigationVC
         window?.makeKeyAndVisible()
     }
