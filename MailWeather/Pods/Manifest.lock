@@ -1,7 +1,5 @@
 PODS:
   - Alamofire (5.2.2)
-  - AloeStackView (1.2.0)
-  - Differentiator (4.0.1)
   - Kingfisher (5.14.1):
     - Kingfisher/Core (= 5.14.1)
   - Kingfisher/Core (5.14.1)
@@ -15,10 +13,6 @@ PODS:
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
-  - RxDataSources (4.0.1):
-    - Differentiator (~> 4.0)
-    - RxCocoa (~> 5.0)
-    - RxSwift (~> 5.0)
   - RxGesture (3.0.2):
     - RxCocoa (~> 5.1)
     - RxSwift (~> 5.1)
@@ -32,11 +26,9 @@ PODS:
   - SnapKit (5.0.1)
 
 DEPENDENCIES:
-  - AloeStackView (~> 1.2.0)
   - Moya (~> 14.0.0)
   - Moya/RxSwift
   - RxCocoa (~> 5.1.1)
-  - RxDataSources (~> 4.0.1)
   - RxGesture (~> 3.0.1)
   - RxKingfisher (~> 1.0.0)
   - RxSwift
@@ -45,12 +37,9 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
-    - AloeStackView
-    - Differentiator
     - Kingfisher
     - Moya
     - RxCocoa
-    - RxDataSources
     - RxGesture
     - RxKingfisher
     - RxRelay
@@ -59,18 +48,15 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
-  AloeStackView: 8a4ce0efa08128dd78d538372f60c76c224034bb
-  Differentiator: 886080237d9f87f322641dedbc5be257061b0602
   Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
-  RxDataSources: efee07fa4de48477eca0a4611e6d11e2da9c1114
   RxGesture: d6bd7447ca3a596c7a9702a6a2b6a2bb5d8bae54
   RxKingfisher: 0f07678aca3e6a20143dfba67ec2d2c70d443a9a
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
 
-PODFILE CHECKSUM: a20740732b1205c8e54a960506be596f7a86f856
+PODFILE CHECKSUM: f749935e2bcddef6814217c76d56826de25e386c
 
 COCOAPODS: 1.9.1
