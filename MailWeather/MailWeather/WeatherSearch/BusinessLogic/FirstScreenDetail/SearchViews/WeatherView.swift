@@ -17,7 +17,9 @@ class WeatherView: UIView {
     private let viewInset: CGFloat = 5
     private let townLabelHeight: CGFloat = 50
     private let imgHeightWidth: CGFloat = 150
+    private let fontSize: CGFloat = 25
     
+//    MARK:- Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupBaseUI()
@@ -28,10 +30,11 @@ class WeatherView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+//    MARK: - Setup UI
     private func setupBaseUI() {
         setupTownLabel()
-        
     }
+    
     private func setupTownLabel() {
         self.addSubview(townNameLabel)
         townNameLabel.snp.makeConstraints { (make) in
@@ -62,11 +65,11 @@ class WeatherView: UIView {
     
     private func setFields() {
         townNameLabel.textAlignment = .center
-        townNameLabel.font = UIFont.systemFont(ofSize: 25)
+        townNameLabel.font = UIFont.systemFont(ofSize: fontSize)
         
-        temperatureLabel.font = UIFont.systemFont(ofSize: 25)
+        temperatureLabel.font = UIFont.systemFont(ofSize: fontSize)
         temperatureLabel.textAlignment = .center
         
-        weatherIconImageView.contentMode = .scaleAspectFill
+        weatherIconImageView.contentMode = .scaleAspectFit
     }
 }

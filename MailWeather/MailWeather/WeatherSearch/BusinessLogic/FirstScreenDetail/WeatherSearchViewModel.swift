@@ -17,10 +17,16 @@ final class WeatherSearchViewModel: WeatherSearchViewModelProtocol {
     var responseIconSubject: BehaviorSubject<String> = BehaviorSubject(value: "")
     var responseTemperatureSubject: BehaviorSubject<String> = BehaviorSubject(value: "")
     var isTap: BehaviorSubject<Bool> = BehaviorSubject(value: false)
+    
     private let router: WeatherSearchRouter
     private let service: SearchServiceProtocol
     private let disposeBag = DisposeBag()
     
+    private var weather = [WeatherModel]()
+    
+    private let recommendationText = "Input Correct Town..."
+    
+//    MARK:- Init
     init(router: WeatherSearchRouter, service: SearchServiceProtocol = SearchService() ) {
         self.router = router
         self.service = service
@@ -33,7 +39,7 @@ final class WeatherSearchViewModel: WeatherSearchViewModelProtocol {
             .throttle(0.4, scheduler: MainScheduler.asyncInstance)
             .do(onNext: {[weak self] (_) in
                 guard let self = self else {return }
-                self.responseTownNameSubject.onNext("Input correct town... ")
+                self.responseTownNameSubject.onNext(self.recommendationText)
                 self.responseIconSubject.onNext("")
                 self.responseTemperatureSubject.onNext("")
             })
@@ -49,6 +55,7 @@ final class WeatherSearchViewModel: WeatherSearchViewModelProtocol {
             .weatherSearch(town: town)
             .subscribe(onNext: {[weak self] (weather) in
                 guard let self = self else {return }
+                self.weather = [weather]
                 self.responseTownNameSubject.onNext(weather.name)
                 self.responseIconSubject.onNext(weather.weather.first?.icon ?? "")
                 self.responseTemperatureSubject.onNext(String(Int(round(weather.main.temp))))
@@ -56,12 +63,14 @@ final class WeatherSearchViewModel: WeatherSearchViewModelProtocol {
             .disposed(by: disposeBag)
     }
     
+//    MARK:- Router Work
     private func showDetailWeatherScreen() {
         isTap
             .filter({$0})
             .subscribe(onNext: { [weak self] _ in
                 guard let self = self else {return }
-                self.router.showDetailWeatherScreen()
+                guard let weather = self.weather.first else {return }
+                self.router.showDetailWeatherScreen(weather: weather)
             })
             .disposed(by: disposeBag)
     }

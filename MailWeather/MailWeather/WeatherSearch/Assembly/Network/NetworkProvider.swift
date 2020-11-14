@@ -10,13 +10,19 @@ import Moya
 
 enum NetworkProvider: TargetType {
     case searchWeather(town: String)
+    case getForecast(town: String)
     
     var baseURL: URL {
         return URL(string: "https://api.openweathermap.org/")!
     }
     
     var path: String {
-        return "data/2.5/weather"
+        switch self {
+        case .searchWeather:
+            return "data/2.5/weather"
+        case .getForecast:
+            return "data/2.5/forecast"
+        }
     }
     
     var method: Method {
@@ -29,12 +35,17 @@ enum NetworkProvider: TargetType {
     
     var task: Task {
         switch self {
+            
         case let .searchWeather(town: town):
             let params = ["q": town, "appid": "df517298ffb39fe22b47b4747b0c7f66", "units": "metric"]
             return .requestParameters(parameters: params, encoding: URLEncoding())
+            
+        case let .getForecast(town: town):
+            let params =  ["q": town, "appid":"df517298ffb39fe22b47b4747b0c7f66", "units": "metric", "cnt": "8"]
+            return .requestParameters(parameters: params, encoding: URLEncoding())
         }
     }
-        
+    
     var headers: [String : String]? {
         return nil
     }
