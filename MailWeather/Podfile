@@ -12,7 +12,7 @@ target 'MailWeather' do
 	pod 'SnapKit', '~> 5.0.1'
 	pod 'RxKingfisher', '~>1.0.0'
 	pod 'RxGesture','~> 3.0.1'
-
+	pod 'AloeStackView','~> 1.2.0'
   # Pods for MailWeather
 
   target 'MailWeatherTests' do

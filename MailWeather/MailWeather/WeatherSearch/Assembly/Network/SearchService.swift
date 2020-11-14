@@ -11,6 +11,7 @@ import RxSwift
 
 protocol SearchServiceProtocol {
     func weatherSearch(town: String) -> Observable<WeatherModel>
+    func searchForecast(town: String) -> Observable<ForecastWeatherModel>
 }
 
 final class SearchService: SearchServiceProtocol {
@@ -27,4 +28,11 @@ final class SearchService: SearchServiceProtocol {
     }
     
     
+    func searchForecast(town: String) -> Observable<ForecastWeatherModel> {
+        let token: NetworkProvider = .getForecast(town: town)
+        return provider.rx
+            .request(token)
+            .map(ForecastWeatherModel.self)
+            .asObservable()
+    }
 }

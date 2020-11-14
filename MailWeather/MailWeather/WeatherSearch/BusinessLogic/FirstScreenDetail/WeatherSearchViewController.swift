@@ -18,19 +18,31 @@ final class WeatherSearchViewController: UIViewController {
     
 //    Views
     private let searchbar = UISearchBar()
+    private let backGroundImageView = UIImageView()
     private let weatherView = WeatherView()
 //    Consts
     private let viewHeightWidth: CGFloat = 250
-    private let searchBarPlaceholder = "Введите название города..."
+    private let searchBarPlaceholder = "Enter town view..."
+    private let recommendationText = "Input Correct Town..."
     
-//    RxStuff
+    private let viewOffset: CGFloat = 10
+    
+//  MARK: - RxStuff
     private let disposeBag = DisposeBag()
     
-    
+//  MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         binding()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchbar.text = ""
+        searchVM.responseIconSubject.onNext("")
+        searchVM.responseTemperatureSubject.onNext("")
+        searchVM.responseTownNameSubject.onNext(recommendationText)
     }
     
     override func viewDidLayoutSubviews() {
@@ -38,22 +50,30 @@ final class WeatherSearchViewController: UIViewController {
         setupUI()
     }
     
+//  MARK: - Setup UI
     private func setupUI() {
+        setupBackGround()
         setupSearchBar()
         setupView()
-        
     }
-//    MARK: - Search Bar
+    
     private func setupSearchBar() {
         searchbar.searchBarStyle = .minimal
         searchbar.placeholder = searchBarPlaceholder
         navigationItem.titleView = searchbar
     }
-//    MARK: - Views
+    
+    private func setupBackGround(){
+        view.addSubview(backGroundImageView)
+        backGroundImageView.snp.makeConstraints({$0.leading.trailing.top.bottom.equalToSuperview()})
+        backGroundImageView.image = UIImage(named: "backGround")
+    }
+    
     private func setupView() {
         view.addSubview(weatherView)
         weatherView.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
+            make.top.equalTo(searchbar.snp.bottom).offset(viewOffset)
+            make.centerX.equalToSuperview()
             make.height.width.equalTo(viewHeightWidth)
         }
     }
