@@ -30,7 +30,7 @@ final class DetailWeatherViewModel: DetailWeatherViewModelProtocol {
         self.service = service
         self.getForecast(by: weather.name)
         self.townNameSubject.onNext(weather.name)
-        self.feelsLikeSubject.onNext(String(Int(round(weather.main.feelsLike))))
+        self.feelsLikeSubject.onNext(String(Int(round(weather.main.feelsLike))) + "℃")
     }
     
     private func getForecast(by town: String) {

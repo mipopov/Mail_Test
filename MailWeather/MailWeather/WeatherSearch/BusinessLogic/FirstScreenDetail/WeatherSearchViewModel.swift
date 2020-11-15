@@ -58,7 +58,7 @@ final class WeatherSearchViewModel: WeatherSearchViewModelProtocol {
                 self.weather = [weather]
                 self.responseTownNameSubject.onNext(weather.name)
                 self.responseIconSubject.onNext(weather.weather.first?.icon ?? "")
-                self.responseTemperatureSubject.onNext(String(Int(round(weather.main.temp))))
+                self.responseTemperatureSubject.onNext(String(Int(round(weather.main.temp))) + "℃")
             })
             .disposed(by: disposeBag)
     }

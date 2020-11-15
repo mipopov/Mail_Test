@@ -14,9 +14,9 @@ class HeaderView: UIView {
     let infoLabel = UILabel()
     let temperatureLabel = UILabel()
     
-    private let viewInset: CGFloat = 10
-    private let townNameHeight: CGFloat = 100
-    private let infoText = "Ощущается как:"
+    private let viewInset: CGFloat = 5
+    private let townNameHeight: CGFloat = 50
+    private let infoText = "Feels like:"
     
     //    MARK:- Init
         override init(frame: CGRect) {
@@ -54,7 +54,7 @@ class HeaderView: UIView {
         self.addSubview(temperatureLabel)
         
         temperatureLabel.snp.makeConstraints { (make) in
-            make.top.equalTo(infoLabel.snp.bottom).inset(viewInset)
+            make.top.equalTo(infoLabel.snp.bottom).offset(2 * viewInset)
             make.centerX.equalTo(townNameLabel.snp.centerX)
             make.height.equalTo(townNameHeight / 2)
         }
@@ -62,7 +62,11 @@ class HeaderView: UIView {
     
     private func setLabel() {
         townNameLabel.textAlignment = .center
+        townNameLabel.font = UIFont.systemFont(ofSize: 27)
+        
         infoLabel.textAlignment = .center
         infoLabel.text = infoText
+        
+        temperatureLabel.font = UIFont.systemFont(ofSize: 30)
     }
 }

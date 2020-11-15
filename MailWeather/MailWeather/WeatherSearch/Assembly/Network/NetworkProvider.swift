@@ -41,7 +41,7 @@ enum NetworkProvider: TargetType {
             return .requestParameters(parameters: params, encoding: URLEncoding())
             
         case let .getForecast(town: town):
-            let params =  ["q": town, "appid":"df517298ffb39fe22b47b4747b0c7f66", "units": "metric", "cnt": "8"]
+            let params =  ["q": town, "appid":"df517298ffb39fe22b47b4747b0c7f66", "units": "metric", "cnt": "10"]
             return .requestParameters(parameters: params, encoding: URLEncoding())
         }
     }
