@@ -21,7 +21,8 @@ final class WeatherSearchViewController: UIViewController {
     private let backGroundImageView = UIImageView()
     private let weatherView = WeatherView()
 //    Consts
-    private let viewHeightWidth: CGFloat = 250
+    private let viewWidth: CGFloat = 280
+    private let viewHeight: CGFloat = 200
     private let searchBarPlaceholder = "Enter town ..."
     private let recommendationText = "Input Correct Town..."
     
@@ -70,10 +71,12 @@ final class WeatherSearchViewController: UIViewController {
     
     private func setupView() {
         view.addSubview(weatherView)
+        weatherView.backgroundColor = UIColor.lightWhite
         weatherView.snp.makeConstraints { (make) in
             make.top.equalTo(searchbar.snp.bottom).offset(viewOffset)
             make.centerX.equalToSuperview()
-            make.height.width.equalTo(viewHeightWidth)
+            make.width.equalTo(viewWidth)
+            make.height.equalTo(viewHeight)
         }
     }
 //    MARK:- Binding

@@ -35,6 +35,7 @@
 		94F988072560562900356CF1 /* ImageCahceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F988062560562900356CF1 /* ImageCahceService.swift */; };
 		94F988092560634F00356CF1 /* MainWeatherInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F988082560634F00356CF1 /* MainWeatherInfo.swift */; };
 		94F9880B25607A3E00356CF1 /* UIViewController+Ext_ShowError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F9880A25607A3E00356CF1 /* UIViewController+Ext_ShowError.swift */; };
+		94FB3E3325612FA500A473B6 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94FB3E3225612FA500A473B6 /* UIColor+Ext.swift */; };
 		CECE79062C5888A134F130C7 /* Pods_MailWeather.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 490338138BA4E1126A172745 /* Pods_MailWeather.framework */; };
 /* End PBXBuildFile section */
 
@@ -92,6 +93,7 @@
 		94F988062560562900356CF1 /* ImageCahceService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCahceService.swift; sourceTree = "<group>"; };
 		94F988082560634F00356CF1 /* MainWeatherInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWeatherInfo.swift; sourceTree = "<group>"; };
 		94F9880A25607A3E00356CF1 /* UIViewController+Ext_ShowError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Ext_ShowError.swift"; sourceTree = "<group>"; };
+		94FB3E3225612FA500A473B6 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		CF915970BAF6D18E857A81C8 /* Pods-MailWeather-MailWeatherUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MailWeather-MailWeatherUITests.debug.xcconfig"; path = "Target Support Files/Pods-MailWeather-MailWeatherUITests/Pods-MailWeather-MailWeatherUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D552C8E9EC17924F88966BB1 /* Pods-MailWeather-MailWeatherUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MailWeather-MailWeatherUITests.release.xcconfig"; path = "Target Support Files/Pods-MailWeather-MailWeatherUITests/Pods-MailWeather-MailWeatherUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E694A6ACDFD5249143F32776 /* Pods_MailWeatherTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MailWeatherTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +191,7 @@
 			children = (
 				94F9880A25607A3E00356CF1 /* UIViewController+Ext_ShowError.swift */,
 				94F98800256034FF00356CF1 /* Reusable.swift */,
+				94FB3E3225612FA500A473B6 /* UIColor+Ext.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				94F987F2255FE98100356CF1 /* HeaderView.swift in Sources */,
 				94F987ED255FD14600356CF1 /* DetailWeatherViewModel.swift in Sources */,
 				94F9880B25607A3E00356CF1 /* UIViewController+Ext_ShowError.swift in Sources */,
+				94FB3E3325612FA500A473B6 /* UIColor+Ext.swift in Sources */,
 				94F988042560432C00356CF1 /* DeatailForecastTableViewCell.swift in Sources */,
 				94F988092560634F00356CF1 /* MainWeatherInfo.swift in Sources */,
 				94F98801256034FF00356CF1 /* Reusable.swift in Sources */,
