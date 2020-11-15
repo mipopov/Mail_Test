@@ -22,7 +22,7 @@ final class WeatherSearchViewController: UIViewController {
     private let weatherView = WeatherView()
 //    Consts
     private let viewHeightWidth: CGFloat = 250
-    private let searchBarPlaceholder = "Enter town view..."
+    private let searchBarPlaceholder = "Enter town ..."
     private let recommendationText = "Input Correct Town..."
     
     private let viewOffset: CGFloat = 10
@@ -33,7 +33,6 @@ final class WeatherSearchViewController: UIViewController {
 //  MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         binding()
     }
     
@@ -88,6 +87,7 @@ final class WeatherSearchViewController: UIViewController {
     private func bindingSearchBar() {
         searchbar.rx.text
             .orEmpty
+            .filter({$0.count > 1})
             .asObservable()
             .bind(to: searchVM.searchTextSubject)
             .disposed(by: disposeBag)
@@ -126,3 +126,4 @@ final class WeatherSearchViewController: UIViewController {
             .disposed(by: disposeBag)
     }
 }
+

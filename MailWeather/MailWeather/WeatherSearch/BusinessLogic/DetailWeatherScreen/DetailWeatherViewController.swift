@@ -18,12 +18,13 @@ class DetailWeatherViewController: UIViewController {
     private let headerView = HeaderView()
     private let forecastTableView = UITableView()
     
-    
+// Forecst items
     private var items: [Forecast] = [] {
         didSet {
             forecastTableView.reloadData()
         }
     }
+    
 //    MARK:- Chache Services
     private var dateCache = [IndexPath: String]()
     private let imageCacheService = ImageCahceService()
@@ -35,10 +36,14 @@ class DetailWeatherViewController: UIViewController {
         return dateForm
     }()
     
+//    Consts
+    private let headerHeight: CGFloat = 130
+    private let cellHeight: CGFloat = 80
+    
 //    MARK:- RxStuff
     private let disposeBag = DisposeBag()
     
-    
+
 //    MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,10 +78,11 @@ class DetailWeatherViewController: UIViewController {
     }
     
     private func loadData() {
-        detailVM.weatherForecast.subscribe(onNext: {[weak self] (newForecast) in
-            guard let self = self else {return }
-            self.items = newForecast
-        })
+        detailVM.weatherForecast
+            .subscribe(onNext: {[weak self] (newForecast) in
+                guard let self = self else {return }
+                self.items = newForecast
+            })
             .disposed(by: disposeBag)
     }
 }
@@ -85,15 +91,16 @@ class DetailWeatherViewController: UIViewController {
 extension DetailWeatherViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        headerView.backgroundColor = .white
         return headerView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 200
+        return headerHeight
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
+        return cellHeight
     }
 
 
